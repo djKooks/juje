@@ -11,11 +11,11 @@ export class Dict {
         this._filePath = filePath;
     }
 
-    public async posTag():Promise<string> {
+    public posTag(){
         let command = 'java -cp "tagger/*" edu.stanford.nlp.tagger.maxent.MaxentTagger -model tagger/models/english-left3words-distsim.tagger -textFile ';
         command += this._filePath;
         let tagged = '';
-        await child.exec(command, function (error: any, stdout: any, stderr: string) {
+        child.exec(command, function (error: any, stdout: any, stderr: string) {
             tagged = stdout;
         });
 
