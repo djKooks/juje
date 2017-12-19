@@ -1,3 +1,3 @@
 import * as Dict from './dict';
 
-export {Dict};
+export { Dict };
