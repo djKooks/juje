@@ -1,8 +1,11 @@
-// import { expect } from 'chai';
-// import obj from '../src/index';
+import { expect } from 'chai';
+import * as dict from '../src/dict';
 
-// const { describe, it } = global;
+const { describe, it } = global;
 
-// describe('obj', () => {
-//   it('works', () => expect(obj).to.be.ok);
-// });
+describe('Dict', () => {
+  let dictObj = new dict.Dict('');
+  it('should works', () => {
+    expect(dictObj.testClass()).to.be.equals(99);
+  });
+});

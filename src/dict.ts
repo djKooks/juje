@@ -5,7 +5,6 @@ import * as child from 'child_process';
 
 export class Dict {
   private _filePath: string;
-
   constructor(filePath: string) {
     this._filePath = filePath;
   }
@@ -33,4 +32,8 @@ export class Dict {
   }
 
   public frequency(stopWords: any[]) {}
+
+  public testClass(): number {
+    return 99;
+  }
 }
