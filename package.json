@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Working on it",
   "scripts": {
-    "test": "mocha --opts tests/mocha.opts tests/**/*-test.{ts,tsx} && npm run lint && npm run build",
+    "test": "mocha --opts tests/mocha.opts tests/index-test.ts",
     "lint": "eslint 'src/**/*.{ts,tsx}' 'tests/**/*.{ts,tsx}'",
     "format": "prettier --write 'src/**/*.{ts,tsx}' 'tests/**/*.{ts,tsx}'",
     "build": "rm -rf lib && tsc -p . && rm -fr lib/tests && mv lib/src/** lib/ && rm -fr lib/src",
