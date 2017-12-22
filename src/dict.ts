@@ -9,6 +9,10 @@ export class Dict {
     this._filePath = filePath;
   }
 
+  public get filePath(): string {
+    return this._filePath;
+  }
+
   public async posTag(): Promise<Array<{ word: string; tag: string }>> {
     let command =
       'java -cp "tagger/*" edu.stanford.nlp.tagger.maxent.MaxentTagger -model tagger/models/english-left3words-distsim.tagger -textFile ';
@@ -32,8 +36,4 @@ export class Dict {
   }
 
   public frequency(stopWords: any[]) {}
-
-  public testClass(): number {
-    return 99;
-  }
 }
