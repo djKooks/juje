@@ -4,19 +4,27 @@
 import * as child from 'child_process';
 
 export class Dict {
-  private _filePath: string;
-  constructor(filePath: string) {
-    this._filePath = filePath;
+  private _libPath: string;
+  private _taggerPath: string;
+  constructor(libPath: string, taggerPath: string) {
+    this._libPath = libPath;
+    this._taggerPath = taggerPath;
   }
 
-  public get filePath(): string {
-    return this._filePath;
+  public get libPath(): string {
+    return this._libPath;
   }
 
-  public async posTag(): Promise<Array<{ word: string; tag: string }>> {
-    let command =
-      'java -cp "tagger/*" edu.stanford.nlp.tagger.maxent.MaxentTagger -model tagger/models/english-left3words-distsim.tagger -textFile ';
-    command += this._filePath;
+  public get taggerPath(): string {
+    return this._taggerPath;
+  }
+
+  public async posTag(filePath: string): Promise<Array<{ word: string; tag: string }>> {
+    // java -cp "tagger/*" edu.stanford.nlp.tagger.maxent.MaxentTagger -model tagger/models/english-left3words-distsim.tagger -textFile text.txt'
+    let command = 'java -cp "' + this._libPath + '" ';
+    command += 'edu.stanford.nlp.tagger.maxent.MaxentTagger -model ';
+    command += this._taggerPath;
+    command += ' -textFile ' + filePath;
     let output = await child.execSync(command).toString('utf8');
     let parsedOutput = output.split(' ');
     let tagSet: Array<{ word: string; tag: string }> = [];
@@ -35,5 +43,7 @@ export class Dict {
     return tagSet;
   }
 
-  public frequency(stopWords: any[]) {}
+  public frequency(filePath: string, stopWords: any[]) {
+
+  }
 }
