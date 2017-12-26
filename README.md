@@ -4,7 +4,7 @@ Personal text modeling project based on TypeScript. Totally unstable...
 
 ## Roadmap
 - [ ] Update introduction & guide document
-- [ ] POS tagger
+- [X] POS tagger (Based on Stanford POS tagger)
 - [ ] Word frequency
 - [ ] TF-IDF
 - [ ] Topic modeling
